@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f6fb;
+}
+
+.pagina-login {
+    height: 100vh;
+    display: flex;
+}
+.lado-esquerdo {
+    width: 50%;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    color: white;
+background: #59043C;
+background: linear-gradient(170deg, rgba(89, 4, 60, 1) 24%, rgba(8, 38, 24, 1) 48%, rgba(122, 140, 81, 1) 72%, rgba(214, 217, 139, 1) 89%, rgba(242, 237, 213, 1) 100%);
+}
+
+.conteudo-esquerdo h1 {
+    font-size: 48px;
+    margin-bottom: 25px;
+   color:#D6D98B; 
+}
+
+.conteudo-esquerdo p {
+    font-size: 19px;
+    color: #D6D98B;
+}
+
+.lado-direito {
+    width: 50%;
+    background-color: #7A8C51;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.login-container {
+    width: 420px;
+    box-shadow: 0 10px 60px 10px #bec07b;
+    background-color: #d6d98b;
+    padding: 50px;
+    width: 800px;
+    border-radius: 20px;
+}
+
+.cabecalho-login {
+    margin-bottom: 35px;
+    
+}
+
+.cabecalho-login h2 {
+    font-size: 32px;
+    color: #222;
+    margin-bottom: 10px;
+    color: #59043c;
+}
+
+.cabecalho-login p {
+    font-size: 15px;
+    color: #59043c;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+}
+
+label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #59043C;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #59043c;
+    border-radius: 8px;
+    padding: 0 15px;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #3157d5;
+    box-shadow: 0 0 0 3px rgba(49, 87, 213, 0.1);
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background-color: #59043c;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #73054e;
+}
+
+@media (max-width: 800px) {
+
+    .pagina-login {
+        flex-direction: column;
+    }
+
+    .lado-esquerdo,
+    .lado-direito {
+        width: 100%;
+    }
+
+    .lado-esquerdo {
+        min-height: 280px;
+        padding: 40px;
+    }
+
+    .conteudo-esquerdo h1 {
+        font-size: 36px;
+    }
+
+    .lado-direito {
+        padding: 40px 25px;
+        height: 100%;
+    }
+}
+a{
+    color: #ffffff;
+    text-decoration: none;
+}

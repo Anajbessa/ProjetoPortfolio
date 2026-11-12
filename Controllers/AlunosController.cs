@@ -38,5 +38,45 @@ namespace ProjetoPortfolio.Controllers
             ).ToListAsync();
             return Ok(listaAlunos);
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> AlterarAluno(int id, Aluno aluno)
+        {
+            var alunoAtual = await _context.Alunos.FindAsync(id);
+
+            if (alunoAtual == null)
+            {
+                return NotFound();
+            }
+
+            alunoAtual.Nome = aluno.Nome;
+            alunoAtual.Cpf = aluno.Cpf;
+            alunoAtual.Email = aluno.Email;
+            alunoAtual.SobreAluno = aluno.SobreAluno;
+            alunoAtual.TecnologiasConhecida = aluno.TecnologiasConhecida;
+            alunoAtual.HabilidadesCertificados = aluno.HabilidadesCertificados;
+            alunoAtual.Experiencia = aluno.Experiencia;
+            alunoAtual.FerramentasConhecidas = aluno.FerramentasConhecidas;
+            alunoAtual.TurmaId = aluno.TurmaId;
+
+            await _context.SaveChangesAsync();
+
+            return Ok("Aluno alterado com sucesso");
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAluno(int id)
+        {
+            var aluno = await _context.Alunos.FindAsync(id);
+
+            if (aluno == null)
+            {
+                return NotFound();
+            }
+
+            _context.Alunos.Remove(aluno);
+            await _context.SaveChangesAsync();
+
+            return Ok("Aluno deletado com sucesso!");
+        }
     }
 }

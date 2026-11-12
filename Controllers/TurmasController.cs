@@ -36,6 +36,40 @@ namespace ProjetoPortfolio.Controllers
 
             return Ok(listaTurma);
         }
-       
+        [HttpPut("{id}")]
+        public async Task<IActionResult> AlterarTurma(int id, Turma turma)
+        {
+            var turmaAtual = await _context.Turmas.FindAsync(id);
+
+            if (turmaAtual == null)
+            {
+                return NotFound();
+            }
+
+            turmaAtual.Nome = turma.Nome;
+            turmaAtual.Periodo = turma.Periodo;
+            turmaAtual.Professor = turma.Professor;
+
+            await _context.SaveChangesAsync();
+
+            return Ok("Turma alterada com sucesso");
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTurma(int id)
+        {
+            var turma = await _context.Turmas.FindAsync(id);
+
+            if (turma == null)
+            {
+                return NotFound();
+            }
+
+            _context.Turmas.Remove(turma);
+            await _context.SaveChangesAsync();
+
+            return Ok("Turma deletada com sucesso!");
+        }
+
     }
 }
